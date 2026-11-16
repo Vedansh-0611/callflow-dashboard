@@ -625,3 +625,442 @@ tbody tr:focus-visible {
     grid-template-columns: 110px 1fr 36px;
   }
 }
+
+/* ---- SaaS shell -------------------------------------------------------- */
+:root {
+  --warn: #b26b00;
+  --notice-bg: rgba(42, 120, 214, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --warn: #e7a43a;
+    --notice-bg: rgba(57, 135, 229, 0.12);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.demo-banner {
+  background: var(--series-1);
+  color: #fff;
+  text-align: center;
+  padding: 7px 16px;
+  font-size: 13px;
+}
+
+.demo-banner a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.boot {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  color: var(--text-muted);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--series-1), var(--accent-tool));
+}
+
+.org-switcher select,
+.inline-form input,
+.auth-card input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 10px;
+  min-width: 0;
+}
+
+.org-switcher select {
+  max-width: 260px;
+  font-weight: 600;
+}
+
+.user-email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.tabs a {
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+
+.tabs a.active {
+  color: var(--text);
+  border-bottom-color: var(--series-1);
+  font-weight: 600;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.button-small {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.button-primary {
+  background: var(--series-1);
+  border-color: var(--series-1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--series-1);
+  filter: brightness(1.08);
+}
+
+.button-danger {
+  color: var(--critical);
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Sections, forms, secrets */
+.section-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.section-card p {
+  margin: 0;
+}
+
+.section-card > .button {
+  justify-self: start;
+}
+
+.subheading {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.inline-form input {
+  flex: 1 1 220px;
+}
+
+.inline-form .full {
+  flex-basis: 100%;
+}
+
+.copy-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 6px 6px 10px;
+  min-width: 0;
+}
+
+.copy-field code {
+  flex: 1;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.reveal,
+.notice {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--notice-bg);
+  border: 1px solid var(--border);
+}
+
+.reveal .button {
+  justify-self: start;
+}
+
+.code-block {
+  margin: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.how-to summary {
+  cursor: pointer;
+  color: var(--series-1);
+}
+
+.how-to .code-block {
+  margin-top: 8px;
+}
+
+tbody tr.static-row {
+  cursor: default;
+}
+
+table.compact td,
+table.compact th {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.small-skeleton {
+  height: 80px;
+}
+
+.center {
+  text-align: center;
+}
+
+.endpoint-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.endpoint-url {
+  font-weight: 600;
+  word-break: break-all;
+}
+
+/* Usage meters and plans */
+.plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.plan-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.meters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.meter {
+  display: grid;
+  gap: 6px;
+}
+
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.meter-label {
+  font-weight: 600;
+}
+
+.meter-track {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  overflow: hidden;
+}
+
+.meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.meter-ok {
+  background: var(--series-1);
+}
+
+.meter-warn {
+  background: var(--warn);
+}
+
+.meter-over {
+  background: var(--critical);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.plan-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.plan-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-secondary);
+  display: grid;
+  gap: 4px;
+}
+
+.plan-card .badge,
+.plan-card .button {
+  justify-self: start;
+}
+
+.plan-current {
+  border-color: var(--series-1);
+}
+
+.plan-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.plan-price {
+  font-weight: 700;
+}
+
+/* Auth screens */
+.auth-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  padding: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.auth-card h1 {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.auth-card p {
+  margin: 0;
+}
+
+.auth-card label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.auth-card input {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.auth-card .button-primary {
+  padding: 10px;
+}
+
+@media (max-width: 800px) {
+  .meters {
+    grid-template-columns: 1fr;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .org-switcher select {
+    max-width: 200px;
+  }
+}
